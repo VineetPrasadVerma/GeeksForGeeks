@@ -1,6 +1,6 @@
 n = int(input())
 
-for _ in range(n):
+for k in range(n):
     final_ans_list = []
     size_of_array = int(input())
     list_of_elements = input()
