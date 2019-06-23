@@ -1,22 +1,21 @@
-import itertools
+import math
 test_cases = int(input())
-for _ in range(test_cases):
-    size = int(input())
-    prime_list = []
-    super_prime_list = []
+size = []
+for _ in range(0, test_cases):
+    size.append(int(input()))
+limit = max(size) + 1
+prime_list = limit * [None]
+for i in range(2, limit+1):
+    for temp in range(2, int(math.sqrt(i)) + 1):
+        if i % temp == 0:
+            break
+    else:
+        prime_list[i] = True
+
+for i in size:
     count = 0
-    for i in range(2, size+1):
-        for temp in range(2, i//2):
-            if i % temp == 0:
-                break
-        else:
-            if i != 4:
-                prime_list.append(i)
-                super_prime_list = list(itertools.combinations(prime_list[:prime_list.index(i)], 2))
-                for j in super_prime_list:
-                    if sum(j) == i:
-                        count += 1
-                        break
-                super_prime_list = []
+    for j in range(i-1):
+        if prime_list[j] and prime_list[j+2]:
+            count += 1
     print(count)
 
