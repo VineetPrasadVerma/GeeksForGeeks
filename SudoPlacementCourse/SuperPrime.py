@@ -6,21 +6,17 @@ for _ in range(test_cases):
     super_prime_list = []
     count = 0
     for i in range(2, size+1):
-        flag = False
-        temp = 2
-        while temp < i:
+        for temp in range(2, i//2):
             if i % temp == 0:
-                flag = True
                 break
-            temp += 1
-        if not flag:
-            prime_list.append(i)
-    super_prime_list = list(itertools.combinations(prime_list, 2))
-
-    for i in prime_list:
-        for j in super_prime_list:
-            if sum(j) == i:
-                count += 1
-                break
+        else:
+            if i != 4:
+                prime_list.append(i)
+                super_prime_list = list(itertools.combinations(prime_list[:prime_list.index(i)], 2))
+                for j in super_prime_list:
+                    if sum(j) == i:
+                        count += 1
+                        break
+                super_prime_list = []
     print(count)
 
