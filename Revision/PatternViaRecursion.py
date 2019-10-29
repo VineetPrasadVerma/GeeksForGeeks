@@ -1,11 +1,11 @@
-def pattern(n):
-    if n == 1:
-        print("*")
+def pattern(temp, n):
+    if temp == n+1:
         return
-    for i in range(n, ):
-        print("*", end="")
+    for i in range(temp):
+        print("*", end = "")
     print()
-    pattern(n-1)
+    pattern(temp+1, n)
 
 
-pattern(5)
+
+pattern(1, 5)
