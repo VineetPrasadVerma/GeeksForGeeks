@@ -32,7 +32,6 @@ class CircularQueue:
                 self.front += 1
             return temp
 
-
     def display(self):
         if self.front == -1:
             print("Empty Queue")
