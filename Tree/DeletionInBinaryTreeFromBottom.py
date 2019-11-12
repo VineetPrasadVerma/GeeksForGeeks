@@ -13,28 +13,28 @@ def in_order(temp):
     in_order(temp.right)
 
 
-# def delete_deepest(root, delete_node):
-#     q = []
-#     q.append(root)
-#     while len(q):
-#         temp = q.pop(0)
-#         if temp is delete_node:
-#             temp = None
-#             return
-#
-#         if temp.right:
-#             if temp.right == delete_node:
-#                 temp.right = None
-#                 return
-#             else:
-#                 q.append(temp.right)
-#
-#         if temp.left:
-#             if temp.left == delete_node:
-#                 temp.left = None
-#                 return
-#             else:
-#                 q.append(temp.left)
+def delete_deepest(root, delete_node):
+    q = []
+    q.append(root)
+    while len(q):
+        temp = q.pop(0)
+        if temp is delete_node:
+            temp = None
+            return
+
+        if temp.right:
+            if temp.right == delete_node:
+                temp.right = None
+                return
+            else:
+                q.append(temp.right)
+
+        if temp.left:
+            if temp.left == delete_node:
+                temp.left = None
+                return
+            else:
+                q.append(temp.left)
 
 
 def deletion(root, key):
@@ -58,10 +58,10 @@ def deletion(root, key):
         if temp.right:
             q.append(temp.right)
 
-    # if deleted_node:
-    #     delete_deepest(root, temp)
+    if deleted_node:
+        delete_deepest(root, temp)
     deleted_node.data = temp.data
-    temp = None
+    # temp = None
     return root
 
 root = Node(10)
