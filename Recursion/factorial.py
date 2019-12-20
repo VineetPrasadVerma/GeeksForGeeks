@@ -31,7 +31,7 @@ def print_pattern(n):
         print('*')
         return
     else:
-        temp = n
+        temp = 1
         while temp <= n:
             print('*',  end="")
             temp += 1
